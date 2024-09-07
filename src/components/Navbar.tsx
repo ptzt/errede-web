@@ -1,9 +1,13 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import Logo from "../../public/images/logo.svg"
 import ButtonNav from "./ButtonNav"
+import { usePathname } from "next/navigation"
 
 const Navbar = () => {
+  const pathname = usePathname()
+  const isActive = (path: string) => pathname === path
   return (
     <>
       <div className="w-full h-14 md:h-16 top-0 bg-white overflow-hidden">
@@ -13,37 +17,37 @@ const Navbar = () => {
             <ul className="hidden md:flex gap-x-6 text-black">
               <li>
                 <Link href="/">
-                  <p>Inicio</p>
+                  <p className={isActive("/") ? "text-greenText" : ""}>Inicio</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Nosotros</p>
+                <Link href="/nosotros">
+                  <p className={isActive("/nosotros") ? "text-greenText" : ""}>Nosotros</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Productos</p>
+                <Link href="/productos">
+                  <p className={isActive("/productos") ? "text-greenText" : ""}>Productos</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Novedades</p>
+                <Link href="/novedades">
+                  <p className={isActive("/novedades") ? "text-greenText" : ""}>Novedades</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Dónde comprar</p>
+                <Link href="/donde-comprar">
+                  <p className={isActive("/donde-comprar") ? "text-greenText" : ""}>Dónde comprar</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Recursos</p>
+                <Link href="/recursos">
+                  <p className={isActive("/recursos") ? "text-greenText" : ""}>Recursos</p>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <p>Contacto</p>
+                <Link href="/contacto">
+                  <p className={isActive("/contacto") ? "text-greenText" : ""}>Contacto</p>
                 </Link>
               </li>
             </ul>
